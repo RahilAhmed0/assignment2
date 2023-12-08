@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Shopping</title>
+    <link href="css/styleSheet.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#alphanumeric-input').mask('Z-AAA-AAA', {
+                translation: {
+                    'Z': {
+                        pattern: /[A-Za-z0-9]/
+                    },
+                    'A': {
+                        pattern: /[A-Za-z0-9]/
+                    }
+                }
+            });
+        });
+    </script>
+    
+    <script>
+        function requestSuccess() {
+            alert("Request submitted successfully");
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            alert("Latitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
+            // You can use the latitude and longitude values as needed.
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="Images/logo1.png">
+        <a href="Login.html">Login</a>
+        <h1>FASHION WORLD</h1>
+    </div>
+    
+    <div class="topnav">
+        <a href="#">Home</a>
+        <a href="#BS">BestSeller</a>
+        <a href="#SL">Sale</a>
+        <div class="topnav-right">
+            <a href="#AB">About</a>
+            <a href="#CT">Contact</a>
+        </div>
+    </div>
+    
+    <div id="para">
+        <h3>Welcome to the fashion world</h3>
+        <p>Our shirts are perfect for all your workout needs. With advanced moisture-wicking technology and quick dry design, you’ll have your shirt ready to wear right after your workout. Sweat condensation is eliminated while you train with this shirt. It is easy to wash, and you won’t have to worry about shrinkage!</p>
+    </div>
+    
+    <div class="row">
+        <p class="pL">BESTSELLER</p>
+        <div class="column"  id="BL">
+            <img src="Images/shirt1.png" width=35%>
+            <img src="Images/shirt2.gif" width=30%>
+            <img src="Images/shirt3.png" width=30%>
+        </div>
+        <p class="pL">SALE</p>
+        <div class="column" id="SL">
+            <img src="Images/shirt1.png" width=35%>
+            <img src="Images/shirt2.gif" width=30%>
+            <img src="Images/shirt3.png" width=30%>
+        </div>
+    </div>
+    
+    <div class="main" id="AB">
+        <video width=30% controls>
+            <source src="Video/promo.mp4" type="video/mp4">
+        </video>
+        <p class="pL">Fashion world is a designer-focused clothing store that carries couture and runway pieces from the hottest designers. Be sure to check out their chic selection of dresses, skirts, jackets, and more. From event dressing to casual weekend wear, Fashion world has the fashion you want.</p>
+    </div>
+    
+    <div class="container-header">
+        <h3 align="center">Contact Us</h3>
+    </div>
+    
+    <div class="container-contact" id="CT">
+       
+       <div class="footer">
+           
+         <div class="contact-info">
+            <p><strong>Address:</strong>abc street, Ontario, Canada</p>
+            <p><strong>Phone:</strong>+123456789</p>
+            <p><strong>Email:</strong>abc@gmail.com</p>
+         </div>
+         <div class="contact-form">
+             <form method="post" onsubmit="return requestSuccess()">
+                
+                <div class="col-255">
+                  <label for="uname">User Name</label> 
+                </div>
+                <div class="col-755">
+                   <input type="text" id="uname" name="username" placeholder="username" required> <br><br>
+                    <label class="switch"><input type="checkbox"><span class="slider round"></span></label> <label>Anonymous</label>
+                </div>
+
+    
+                <div class="col-255">
+                    <label for="receipt">Receipt</label>
+                </div>
+                <div class="col-755">
+                    <input type="text" id="alphanumeric-input" name="alphanumeric-input" maxlength="9" placeholder="X-XXX-XXX" required>
+                </div>
+                 
+                <div class="col-255">
+                    <label for="subject">Message</label>
+                </div>
+                <div class="col-755">
+                    <textarea id="subject" name="subject" placeholder="Write a message.." style="height:100px" required></textarea>
+                    <input type="submit" value="Submit">
+                    <!-- Add a button to trigger geolocation -->
+                    <button type="button" onclick="getLocation()">Get My Location</button>
+                </div>
+                 
+            </form>
+         </div>
+        </div>
+     </div>
+</body>
+</html>

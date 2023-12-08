@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Register</title>
+<link href="css/styleSheet.css" rel="stylesheet" type="text/css">
+	
+<script>
+	function myFunction() {
+  		var checkBox = document.getElementById("myCheck");
+
+		// If the checkbox is checked, display the output text
+		if (checkBox.checked == true){
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
+</head>
+
+<body>
+	
+  <h1>Register</h1>
+	<div class="container">
+	<form name="register" onSubmit= "return validation()" action="Login.html">
+	<div class="register-row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="fname" required>
+      </div>
+	  <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lname" required>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label for="uname">User Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="uname" name="uname" required>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label for="date">Date of Birth</label>
+      </div>
+      <div class="col-75">
+        <input type="date" id="date" name="dob" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Country</label>
+      </div>
+      <div class="col-75">
+	  <select name="country" required>
+        <option value="">Select Country</option>
+        <option value="USA">United States</option>
+        <option value="UK">United Kingdom</option>
+        <option value="Canada">Canada</option>
+        <option value="Australia">Australia</option>
+        <option value="Germany">Germany</option>
+        <!-- Add more countries as needed -->
+      </select>
+		  <br><br> <input type="checkbox" checked="checked" id="myCheck" onclick="myFunction()">I agree <br><br>
+		  <input type="submit" value="Register">
+      </div>
+    </div>
+  </form>
+  </div> 	
+</body>
+</html>
